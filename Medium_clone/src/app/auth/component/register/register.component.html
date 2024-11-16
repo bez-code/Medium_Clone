@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="auth-page">
+    <div class="container-page">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xs-12">
+                <h1 class="text-xs-center">Sign Up</h1>
+                <p class="text-xs-center">
+                    <a routerLink="/login">Have you an Account?</a>
+                </p>
+                Backend errors here
+                <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control form-control-lg " placeholder="Username"
+                            formControlName="username">
+                        <div *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched"
+                            class="text-danger">
+                            Username is required and should be at least 3 characters.
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control form-control-lg " placeholder="Email"
+                            formControlName="email">
+                        <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched"
+                            class="text-danger">
+                            Email is required and should be at least 3 characters.
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password" class="form-control form-control-lg " placeholder="Password"
+                            formControlName="password">
+                        <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched"
+                            class="text-danger">
+                            Password is required and should be at least 3 characters.
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-lg btn-primary pull-xs-right">
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
